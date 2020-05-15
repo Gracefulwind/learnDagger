@@ -1,0 +1,55 @@
+package com.gracefulwind.learndagger2;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class MainActivity extends AppCompatActivity implements MainContract.View {
+
+
+    @Inject
+    MainPresenter mPresenter;
+    @BindView(R.id.am_btn_click1)
+    Button amBtnClick1;
+    @BindView(R.id.am_btn_click2)
+    Button amBtnClick2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        DaggerMainComponent.builder()
+                .mainModule(new MainModule(this))
+                .build()
+                .inject(this);
+
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+    }
+
+    @Override
+    public void updateUI() {
+        System.out.println("==============");
+        System.out.println("==============");
+        System.out.println("==============");
+    }
+
+    @OnClick({R.id.am_btn_click1, R.id.am_btn_click2})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.am_btn_click1:
+                updateUI();
+                break;
+            case R.id.am_btn_click2:
+                break;
+        }
+    }
+}
