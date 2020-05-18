@@ -17,13 +17,12 @@ import javax.inject.Inject;
 public class MainPresenter {
 
     private MainContract.View mView;
+    private MainContract.Model mModel;
 
     @Inject
     MainPresenter(MainContract.View view) {
         mView = view;
     }
-
-    private MainContract.Model mModel;
 
     MainPresenter(MainContract.View view, MainContract.Model model) {
         mView = view;

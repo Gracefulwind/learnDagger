@@ -13,6 +13,7 @@ import com.gracefulwind.learndagger2.MainPresenter;
 import com.gracefulwind.learndagger2.R;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,8 +33,20 @@ import butterknife.OnClick;
 
 public class SecondActivity extends AppCompatActivity implements SecondContract.View {
 //
-//    @Inject
+    @Inject
     SecondPresenter mPresenter;
+    @Named("sec")
+    @Inject
+    SecondPresenter mPresenterWithName;
+
+//测试作用域
+    @Inject
+    SecondPresenter presenter1;
+    @Inject
+    SecondPresenter presenter2;
+
+
+
     @BindView(R.id.as_btn_click1)
     Button asBtnClick1;
     @BindView(R.id.as_btn_click2)
@@ -46,6 +59,10 @@ public class SecondActivity extends AppCompatActivity implements SecondContract.
 //                .mainModule(new MainModule(this))
 //                .build()
 //                .inject(this);
+        DaggerSecondComponent.builder()
+                .secondModule(new SecondModule(this))
+                .build()
+                .injectSecond(this);
 
         setContentView(R.layout.activity_second);
         ButterKnife.bind(this);

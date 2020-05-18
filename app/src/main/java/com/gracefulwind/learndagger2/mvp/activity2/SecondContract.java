@@ -22,7 +22,7 @@ public class SecondContract {
     }
 
     interface Model extends IModel {
-
+        void getData();
     }
 
 }
