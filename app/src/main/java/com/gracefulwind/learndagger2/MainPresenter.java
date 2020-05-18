@@ -18,15 +18,14 @@ public class MainPresenter {
 
     private MainContract.View mView;
 
-//    @Inject
-//    MainPresenter(MainContract.View view) {
-//        mView = view;
-//    }
-
-    private MainModel mModel;
-
     @Inject
-    MainPresenter(MainContract.View view, MainModel model) {
+    MainPresenter(MainContract.View view) {
+        mView = view;
+    }
+
+    private MainContract.Model mModel;
+
+    MainPresenter(MainContract.View view, MainContract.Model model) {
         mView = view;
         mModel = model;
     }

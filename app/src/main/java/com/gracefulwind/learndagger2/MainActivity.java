@@ -1,10 +1,13 @@
 package com.gracefulwind.learndagger2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.gracefulwind.learndagger2.mvp.activity2.SecondActivity;
 
 import javax.inject.Inject;
 
@@ -49,7 +52,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 updateUI();
                 break;
             case R.id.am_btn_click2:
+                jumpToActivity2();
                 break;
         }
+    }
+
+    private void jumpToActivity2() {
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
     }
 }

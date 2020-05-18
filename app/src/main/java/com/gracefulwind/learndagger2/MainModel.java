@@ -20,11 +20,13 @@ public class MainModel implements MainContract.Model {
 
     @Inject
     public MainModel() {
+        System.out.println("from default inject!!");
+        from = "default inject!";
     }
 
 
-//    @Inject
-//    public MainModel(String from) {
-//        this.from = from;
-//    }
+    public MainModel(String from) {
+        this.from = from;
+        System.out.println("inject!!");
+    }
 }
