@@ -55,10 +55,11 @@ public class SecondModule {
  * 这里的@ActivityScope只对该provides产生的presenter有效
  *
  * */
-    @ActivityScope
+//    @ActivityScope
     @Provides
-    SecondPresenter getPresenter() {
+    SecondPresenter getPresenter(SecondContract.View view) {
         return new SecondPresenter(getView(), getModel());
+//        return new SecondPresenter(view, new SecondModel(view.toString()));
     }
 
     @Named("sec")

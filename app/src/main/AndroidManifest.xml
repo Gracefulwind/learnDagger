@@ -19,6 +19,8 @@
 
         <activity android:name=".mvp.activity2.SecondActivity">
         </activity>
+        <activity android:name=".mvp.activity3.ThirdActivity">
+        </activity>
     </application>
 
 </manifest>

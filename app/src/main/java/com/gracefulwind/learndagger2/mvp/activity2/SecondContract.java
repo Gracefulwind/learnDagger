@@ -17,11 +17,11 @@ import com.gracefulwind.learndagger2.base.IView;
 
 public class SecondContract {
 
-    interface View extends IView {
+    public interface View extends IView {
         void showSecond();
     }
 
-    interface Model extends IModel {
+    public interface Model extends IModel {
         void getData();
     }
 
