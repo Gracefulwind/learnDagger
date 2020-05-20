@@ -47,7 +47,7 @@ public class ThirdActivity extends AppCompatActivity implements ThirdContract.Vi
                 //用了Builder后这个默认方法名就不存在了。
                 .thirdModule(new ThirdModule("from activity"))*/
                 .getThirdView(this)
-                .getThirdModel(new ThirdModel("from dagger"))
+                .getThirdModel(new ThirdModel("from dagger inject"))
                 .build()
 //                .getView().showThird();
                 .inject(this);

@@ -42,9 +42,16 @@ public class ThirdModule {
         return new ThirdPresenter(view.toString(), view, model);
     }
 
-    @Provides
-    ThirdModel getModel(ThirdContract.View view) {
-        return new ThirdModel(view.getData());
-    }
+
+    /**
+     *
+     * 当component中有build该参数的时候就不需要这个方法了，存在反而会报错，dagger不知道用哪种方式生成实例
+     * 当component中没有build该参数的时候需要添加此方法
+     *
+     * */
+//    @Provides
+//    ThirdContract.Model getModel(ThirdContract.View view) {
+//        return new ThirdModel(view.getData());
+//    }
 
 }

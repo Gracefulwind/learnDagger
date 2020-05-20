@@ -15,13 +15,13 @@ import com.gracefulwind.learndagger2.base.IView;
  * @Email: 429344332@qq.com
  */
 
-public class SecondContract {
+public interface SecondContract {
 
-    public interface View extends IView {
+    interface View extends IView {
         void showSecond();
     }
 
-    public interface Model extends IModel {
+    interface Model extends IModel {
         void getData();
     }
 
